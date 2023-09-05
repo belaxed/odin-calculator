@@ -6,7 +6,6 @@ let displayValue = screen.innerText;
 
 //Basic Calculations
 const add = (firstNumber, secondNumber) => {
-    console.log(firstNumber);
     return screen.innerText = Number(firstNumber) + Number(secondNumber);
 }
 const subtract = (firstNumber, secondNumber) => {
@@ -156,18 +155,21 @@ division.addEventListener("click", () => {
 const equals = document.getElementById("equals");
 equals.addEventListener("click", () => {
     secondNumber = screen.innerText;
-    if (operator === "+") {
-        add(firstNumber, secondNumber);
+    if (secondNumber !== "" && secondNumber !== undefined) {
+        if (operator === "+") {
+            add(firstNumber, secondNumber);
+        }
+        else if (operator === "-") {
+            subtract(firstNumber, secondNumber);
+        }
+        else if (operator === "x") {
+            multiply(firstNumber, secondNumber);
+        }
+        else if (operator === "/") {
+            divide(firstNumber, secondNumber);
+        }
     }
-    else if (operator === "-") {
-        subtract(firstNumber, secondNumber);
-    }
-    else if (operator === "x") {
-        multiply(firstNumber, secondNumber);
-    }
-    else if (operator === "/") {
-        divide(firstNumber, secondNumber);
-    }
+    else;
 })
 
 const clear = document.getElementById("clear");
