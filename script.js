@@ -15,7 +15,17 @@ const multiply = (firstNumber, secondNumber) => {
     return screen.innerText = Number(firstNumber) * Number(secondNumber);
 }
 const divide = (firstNumber, secondNumber) => {
-    return screen.innerText = Number(firstNumber) / Number(secondNumber);
+    if (Number(secondNumber) == 0) {
+        firstNumber = "";
+        secondNumber = "";
+        operator = "";
+        displayValue = "";
+        screen.innerText = "ERROR: Divide by 0";
+        return "";
+    }
+    else {
+        return screen.innerText = Number(firstNumber) / Number(secondNumber);
+    }
 }
 
 //Determines when to operate and which calculation to make
@@ -62,7 +72,6 @@ addition.addEventListener("click", () => {
         else if (operator == "/") {
             firstNumber = divide(firstNumber, screen.innerText);
         }
-        //firstNumber = Number(firstNumber) + Number(screen.innerText);
         secondNumber = "";
         operator = "+";
         screen.innerText = firstNumber;
