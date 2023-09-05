@@ -1,20 +1,22 @@
+const screen = document.getElementById("screen");
 let firstNumber;
 let secondNumber;
 let operator;
-let displayValue;
+let displayValue = screen.innerText;
 
 //Basic Calculations
 const add = (firstNumber, secondNumber) => {
-    screen.innerText = Number(firstNumber) + Number(secondNumber);
+    console.log(firstNumber);
+    return screen.innerText = Number(firstNumber) + Number(secondNumber);
 }
 const subtract = (firstNumber, secondNumber) => {
-    screen.innerText = Number(firstNumber) - Number(secondNumber);
+    return screen.innerText = Number(firstNumber) - Number(secondNumber);
 }
 const multiply = (firstNumber, secondNumber) => {
-    screen.innerText = Number(firstNumber) * Number(secondNumber);
+    return screen.innerText = Number(firstNumber) * Number(secondNumber);
 }
 const divide = (firstNumber, secondNumber) => {
-    screen.innerText = Number(firstNumber) / Number(secondNumber);
+    return screen.innerText = Number(firstNumber) / Number(secondNumber);
 }
 
 //Determines when to operate and which calculation to make
@@ -34,39 +36,121 @@ const operate = (operator, firstNumber, secondNumber) => {
 }
 
 //Sets screen equal to current number and stores that value
-const screen = document.getElementById("screen");
+
 const displayButtons = document.querySelectorAll(".displayButton");
 displayButtons.forEach((displayButton) => {
     displayButton.addEventListener("click", function() {
+        if (screen.innerText == firstNumber) {
+            screen.innerText = "";
+        }
         screen.innerText += displayButton.textContent;
-        displayValue = screen.innerText;
     });
 })
 
 //Stores first number to be used in calculation when operator is selected and clears screen
 const addition = document.getElementById("addition");
 addition.addEventListener("click", () => {
-    firstNumber = screen.innerText;
-    operator = "+";
-    screen.innerText = "";
+    if (firstNumber !== "" && firstNumber !== undefined) {
+        if (operator == "+") {
+            firstNumber = add(firstNumber, screen.innerText);
+        }
+        else if (operator == "-") {
+            firstNumber = subtract(firstNumber, screen.innerText);
+        }
+        else if (operator == "x") {
+            firstNumber = multiply(firstNumber, screen.innerText);
+        }
+        else if (operator == "/") {
+            firstNumber = divide(firstNumber, screen.innerText);
+        }
+        //firstNumber = Number(firstNumber) + Number(screen.innerText);
+        secondNumber = "";
+        operator = "+";
+        screen.innerText = firstNumber;
+    }
+    else {
+        firstNumber = screen.innerText;
+        operator = "+";
+        screen.innerText = "";
+    }
 })
 const subtraction = document.getElementById("subtraction");
 subtraction.addEventListener("click", () => {
-    firstNumber = screen.innerText;
-    operator = "-";
-    screen.innerText = "";
+    if (firstNumber !== "" && firstNumber !== undefined) {
+        if (operator == "+") {
+            firstNumber = add(firstNumber, screen.innerText);
+        }
+        else if (operator == "-") {
+            firstNumber = subtract(firstNumber, screen.innerText);
+        }
+        else if (operator == "x") {
+            firstNumber = multiply(firstNumber, screen.innerText);
+        }
+        else if (operator == "/") {
+            firstNumber = divide(firstNumber, screen.innerText);
+        }
+        //firstNumber = Number(firstNumber) - Number(screen.innerText);
+        secondNumber = "";
+        operator = "-";
+        screen.innerText = firstNumber;
+    }
+    else {
+        firstNumber = screen.innerText;
+        operator = "-";
+        screen.innerText = "";
+    }
 })
 const multiplication = document.getElementById("multiplication");
 multiplication.addEventListener("click", () => {
-    firstNumber = screen.innerText;
-    operator = "x";
-    screen.innerText = "";
+    if (firstNumber !== "" && firstNumber !== undefined) {
+        if (operator == "+") {
+            firstNumber = add(firstNumber, screen.innerText);
+        }
+        else if (operator == "-") {
+            firstNumber = subtract(firstNumber, screen.innerText);
+        }
+        else if (operator == "x") {
+            firstNumber = multiply(firstNumber, screen.innerText);
+        }
+        else if (operator == "/") {
+            firstNumber = divide(firstNumber, screen.innerText);
+        }
+        //firstNumber = Number(firstNumber) * Number(screen.innerText);
+        secondNumber = "";
+        operator = "x";
+        screen.innerText = firstNumber;
+    }
+    else {
+        firstNumber = screen.innerText;
+        operator = "x";
+        screen.innerText = "";
+    }
 })
 const division = document.getElementById("division");
 division.addEventListener("click", () => {
-    firstNumber = screen.innerText;
-    operator = "/";
-    screen.innerText = "";
+    if (firstNumber !== "" && firstNumber !== undefined) {
+        if (operator == "+") {
+            firstNumber = add(firstNumber, screen.innerText);
+        }
+        else if (operator == "-") {
+            firstNumber = subtract(firstNumber, screen.innerText);
+        }
+        else if (operator == "x") {
+            firstNumber = multiply(firstNumber, screen.innerText);
+        }
+        else if (operator == "/") {
+            firstNumber = divide(firstNumber, screen.innerText);
+        }
+        //firstNumber = Number(firstNumber) / Number(screen.innerText);
+        secondNumber = "";
+        operator = "/";
+        screen.innerText = firstNumber;
+    }
+    else {
+        firstNumber = screen.innerText;
+        operator = "/";
+        screen.innerText = "";
+    }
 })
 
 const equals = document.getElementById("equals");
