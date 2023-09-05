@@ -68,17 +68,6 @@ division.addEventListener("click", () => {
     operator = "/";
     screen.innerText = "";
 })
-/*
-const calc = function() {
-    if (operator == "undefined") {
-        firstNumber = screen.innerText;
-    }
-    else if (operator == "+" || operator == "-" || operator == "x" || operator == "/") {
-        screen.innerText = "";
-        secondNumber = screen.innerText;
-    }
-}
-*/
 
 const equals = document.getElementById("equals");
 equals.addEventListener("click", () => {
@@ -97,4 +86,11 @@ equals.addEventListener("click", () => {
     }
 })
 
-//calc();
+const clear = document.getElementById("clear");
+clear.addEventListener("click", () => {
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+    displayValue = "";
+    screen.innerText = "";
+})
